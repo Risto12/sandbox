@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        flowingCounter = FlowingCounter()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -51,6 +50,9 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        // stateFlow
+        flowingCounter = FlowingCounter()
         CoroutineScope(CoroutineName("Emitter")).launch {
             while(true) {
                 delay(5000)
